@@ -1,0 +1,137 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: #666666;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.25;
+	padding: 25px 5%;
+}
+a {
+	color: #FF8200;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #4A4A4A;
+	font-weight: 600;
+}
+h1, h2, h3, h4 {
+	font-family: 'Lora', serif;
+	margin-bottom: 10px;
+}
+h5, h6 {
+	margin-bottom: 5px;
+}
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 24px;
+}
+h4 {
+	font-size: 18px;
+}
+h1, p, li {
+	margin-bottom: 10px;
+}
+figure {
+	margin: 0 auto 10px auto;
+	padding: 25px 15px;
+	text-align: center;
+	width: 90%;
+}
+figure img {
+	border: 1px solid #000;
+	box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.1);
+	height: auto;
+	width: 85%;
+}
+figcaption {
+	font-size: 0.7rem;
+	font-weight: bold;
+}
+ul, ol {
+	margin: 20px 10px;
+}
+ul {
+	list-style-type: none;
+}
+ol {
+	padding-left: 20px;
+}
+ol li {
+	padding-left: 10px;
+}
+ul li:before {
+	content: "\f111";
+	display: inline-flex;
+	font-family: FontAwesome;
+	font-size: 6px;
+	margin-right: 20px;
+	vertical-align: middle;
+}
+ul li ul li:before {
+	content: "\f10c";
+}
+small {
+	font-size: 12px;
+}
+footer {
+	border-top: 1px #666 solid;
+	margin: 50px 0;
+	padding-top: 10px;
+	text-align: center;
+}
+.social-links {
+	list-style-type: none;
+	padding-left: 0;
+}
+.social-links li:before {
+	display: none;
+}
+.social-links a {
+	vertical-align: middle;
+}
+.fa {
+	align-items: center;
+	border-radius: 50%;
+	color: #fff;
+	display: inline-flex;
+	font-size: 14px;
+	height: 25px;
+	justify-content: center;
+	margin-right: 3px;
+	text-align: center;
+	width: 25px;
+}
+.fa-facebook {
+	background-color: #3b5998;
+}
+.fa-twitter {
+	background-color: #00aced;
+}
+.fa-linkedin {
+	background-color: #007bb6;
+}
+.fa-github-alt {
+	background-color: #333;
+}
+@media (min-width: 768px) {
+	body {
+		padding: 25px 15%;
+	}
+	figure img {
+		width: 60%;
+	}
+}
