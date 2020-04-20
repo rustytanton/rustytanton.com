@@ -1,0 +1,13 @@
+{
+  "name": "rustytanton.com",
+  "version": "1.0.0",
+  "description": "Static HTML for rustytanton.com",
+  "author": "Rusty Tanton",
+  "homepage": "https://github.com/rustytanton/rustytanton.com#readme",
+  "scripts": {
+    "start": "browser-sync start --server --files \"public_html/*\" --ss \"public_html\""
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
