@@ -135,7 +135,7 @@ footer {
 }
 @media (min-width: 768px) {
 	figure img {
-		width: 60%;
+		width: 90%;
 	}
 	.row {
 		display: flex;
