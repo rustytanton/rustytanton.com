@@ -8,6 +8,6 @@
     "start": "browser-sync start --server --files \"public_html/*\" --ss \"public_html\""
   },
   "devDependencies": {
-    "browser-sync": "^2.26.13"
+    "browser-sync": "^2.29.3"
   }
 }
