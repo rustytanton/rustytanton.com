@@ -9,6 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: rustytanton.com
     steps:
-      - run: ls ${GITHUB_WORKSPACE}
+      - uses: actions/checkout@v4
+      - run: |
+          VAR1=$(ls ${GITHUB_WORKSPACE})
+          VAR2=$(ls ${{ github.workspace }})
+
+          echo "VAR1:"
+          echo $VAR1
+
+          echo "VAR2:"
+          echo $VAR2
       # - run: sed -i "s/{{DATE_TODAY}}/$(date +'%b %e, %Y')/g" ${GITHUB_WORKSPACE}/public_html/index.html
       # - run: scp -rp ${GITHUB_WORKSPACE}/public_html/* $WEBHOST_USER@$WEBHOST_DOMAIN:$WEBHOST_ROOT/
