@@ -9,8 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: rustytanton.com
     steps:
-      - uses: actions/checkout@v4
-      - run: |
+      - name: Check out source code
+        uses: actions/checkout@v4
+      - name: index.html token substitution
+        run: |
           sed -i "s/{{DATE_TODAY}}/$(date +'%b %e, %Y')/g" ${GITHUB_WORKSPACE}/public_html/index.html
-      - run: |
-          scp -rp ${GITHUB_WORKSPACE}/public_html/* $WEBHOST_USER@$WEBHOST_DOMAIN:$WEBHOST_ROOT/
+      - name: SCP files to web server
+        run: |
+          scp -rp ${GITHUB_WORKSPACE}/public_html/* ${WEBHOST_USER}@${WEBHOST_DOMAIN}:${WEBHOST_ROOT}/
+        env:
+          WEBHOST_USER: ${{ vars.WEBHOST_USER }}
+          WEBHOST_DOMAIN: ${{ vars.WEBHOST_DOMAIN }}
+          WEBHOST_ROOT: ${{ vars.WEBHOST_ROOT }}
