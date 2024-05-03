@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     environment: rustytanton.com
     steps:
-      - run: sed -i "s/{{DATE_TODAY}}/$(date +'%b %e, %Y')/g" ./public_html/index.html
-      - run: scp -rp ./public_html/* $WEBHOST_USER@$WEBHOST_DOMAIN:$WEBHOST_ROOT/
+      - run: sed -i "s/{{DATE_TODAY}}/$(date +'%b %e, %Y')/g" ${GITHUB_WORKSPACE}/public_html/index.html
+      - run: scp -rp ${GITHUB_WORKSPACE}/public_html/* $WEBHOST_USER@$WEBHOST_DOMAIN:$WEBHOST_ROOT/
