@@ -18,6 +18,6 @@ jobs:
         run: |
           scp -rp ${GITHUB_WORKSPACE}/public_html/* ${WEBHOST_USER}@${WEBHOST_DOMAIN}:${WEBHOST_ROOT}/
         env:
-          WEBHOST_USER: ${{ vars.WEBHOST_USER }}
-          WEBHOST_DOMAIN: ${{ vars.WEBHOST_DOMAIN }}
-          WEBHOST_ROOT: ${{ vars.WEBHOST_ROOT }}
+          WEBHOST_USER: ${{ secrets.WEBHOST_USER }}
+          WEBHOST_DOMAIN: ${{ secrets.WEBHOST_DOMAIN }}
+          WEBHOST_ROOT: ${{ secrets.WEBHOST_ROOT }}
