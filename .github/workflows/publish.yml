@@ -1,0 +1,13 @@
+name: publish
+run-name: Update files on rustytanton.com
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: rustytanton.com
+    steps:
+      - run: sed -i 's/{{DATE_TODAY}}/$(date +'%b %e, %Y')' ./public_html/index.html
+      - run: scp -rp ./public_html/* $WEBHOST_USER@$WEBHOST_DOMAIN:$WEBHOST_ROOT/
