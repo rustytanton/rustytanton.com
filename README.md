@@ -7,4 +7,3 @@ Local development
 -----------------
 *   Install [nodejs](https://nodejs.org/en/)
 *   Run `npm install` then `npm start`
-
