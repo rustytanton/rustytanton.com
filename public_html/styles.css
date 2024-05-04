@@ -147,6 +147,9 @@ ul.contact-links {
 .fa-github-alt {
 	background-color: #333;
 }
+.programming-languages {
+	font-size: 80%;
+}
 @media (min-width: 768px) {
 	.row {
 		display: flex;
