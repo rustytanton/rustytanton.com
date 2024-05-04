@@ -11,13 +11,18 @@ jobs:
     steps:
       - name: Check out source code
         uses: actions/checkout@v4
+
       - name: index.html token substitution
         run: |
           sed -i "s/{{DATE_TODAY}}/$(date +'%b %e, %Y')/g" ${GITHUB_WORKSPACE}/public_html/index.html
+
       - name: SCP files to web server
-        run: |
-          scp -rp ${GITHUB_WORKSPACE}/public_html/* ${WEBHOST_USER}@${WEBHOST_DOMAIN}:${WEBHOST_ROOT}/
-        env:
-          WEBHOST_USER: ${{ secrets.WEBHOST_USER }}
-          WEBHOST_DOMAIN: ${{ secrets.WEBHOST_DOMAIN }}
-          WEBHOST_ROOT: ${{ secrets.WEBHOST_ROOT }}
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          key: ${{ secrets.SSHKEY }}
+          port: ${{ secrets.PORT }}
+          source: public_html/*
+          target: ~/public_html
