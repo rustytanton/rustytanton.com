@@ -11,10 +11,15 @@ body {
 	line-height: 1.25;
 }
 .row {
+	padding: 20px;
+	width: calc(100vw - 20px);
+}
+.row-odd {
+	background: #eeeeee;
+}
+.column {
 	margin: 0 auto;
 	max-width: 1024px;
-	padding: 20px;
-	width: 100vw;
 }
 a {
 	color: #FF8200;
@@ -105,8 +110,7 @@ small {
 }
 footer {
 	border-top: 1px #666 solid;
-	margin: 50px 0;
-	padding-top: 10px;
+	padding: 20px 0;
 	text-align: center;
 }
 ul.contact-links {
@@ -147,18 +151,27 @@ ul.contact-links {
 .fa-github-alt {
 	background-color: #333;
 }
+.skills,
 .programming-languages {
 	font-size: 80%;
 }
 @media (min-width: 768px) {
+	footer {
+		padding: 50px 0;
+	}
 	.row {
+		width: 100%;
+	}
+	.columns {
 		display: flex;
+		margin: 0 auto;
+		max-width: 1024px;
 	}
 	.column {
 		flex: 1;
+		width: 512px;
 	}
-	.columnL {
+	.column-left {
 		padding-right: 20px;
-		width: 50%;
 	}
 }
