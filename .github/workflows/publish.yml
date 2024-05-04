@@ -26,3 +26,4 @@ jobs:
           port: ${{ secrets.PORT }}
           source: public_html/*
           target: ~/public_html
+          use_insecure_cipher: true
