@@ -79,23 +79,24 @@ figcaption {
 ul, ol {
 	margin: 20px 10px;
 }
-ul {
-	list-style-type: none;
-}
 ol {
 	padding-left: 20px;
 }
 ol li {
 	padding-left: 10px;
 }
-ul li:before {
+ul li {
+	list-style-position: outside;
+	margin-left: 10px;
+}
+/* ul li:before {
 	content: "\f111";
 	display: inline-flex;
 	font-family: FontAwesome;
 	font-size: 6px;
 	margin-right: 20px;
 	vertical-align: middle;
-}
+} */
 ul li ul li:before {
 	content: "\f10c";
 }
@@ -108,7 +109,11 @@ footer {
 	padding-top: 10px;
 	text-align: center;
 }
-.social-links {
+ul.contact-links {
+	list-style-type: none;
+	margin: 0 0 10px 0;
+}
+/* .social-links {
 	list-style-type: none;
 	padding-left: 0;
 }
@@ -117,7 +122,7 @@ footer {
 }
 .social-links a {
 	vertical-align: middle;
-}
+} */
 .callout {
 	background: #eee;
 	margin: 10px;
