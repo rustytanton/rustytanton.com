@@ -25,6 +25,6 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
           source: public_html/*
-          target: ~/public_html
+          target: ~/
           use_insecure_cipher: true
           overwrite: true
