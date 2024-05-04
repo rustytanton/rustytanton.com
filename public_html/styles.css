@@ -118,6 +118,11 @@ footer {
 .social-links a {
 	vertical-align: middle;
 }
+.callout {
+	background: #eee;
+	margin: 10px;
+	padding: 20px;
+}
 .fa {
 	align-items: center;
 	border-radius: 50%;
