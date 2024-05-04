@@ -24,6 +24,6 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
-          source: ${{ github.workspace }}/public_html/*
+          source: ${{ github.workspace }}/public_html
           target: ${{ secrets.DESTDIR }}
           use_insecure_cipher: true
