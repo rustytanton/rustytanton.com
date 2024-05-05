@@ -123,6 +123,8 @@ ul.contact-links {
 .alert {
 	background: #fdb5b9;
 	color: #900C3F;
+	display: flex;
+	font-size: 14px;
 	padding: 10px;
 	position: fixed;	
 	width: 100vw;
@@ -135,8 +137,13 @@ ul.contact-links {
 	color: #900C3F;
 }
 .alert-content {
+	display: flex;
 	margin: 0 auto;
+	padding: 0 10px;
 	max-width: 1024px;
+}
+.alert-icon {
+	padding-right: 5px;
 }
 /* .social-links {
 	list-style-type: none;
