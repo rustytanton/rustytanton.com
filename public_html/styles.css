@@ -14,6 +14,9 @@ body {
 	padding: 20px;
 	width: calc(100vw - 20px);
 }
+.row-first {
+	padding-top: 100px;
+}
 .row-odd {
 	background: #eeeeee;
 }
@@ -117,6 +120,24 @@ ul.contact-links {
 	list-style-type: none;
 	margin: 0 0 10px 0;
 }
+.alert {
+	background: #fdb5b9;
+	color: #900C3F;
+	padding: 10px;
+	position: fixed;	
+	width: 100vw;
+}
+.alert .fa {
+	background: #900C3F;
+	border: 1px #900C3F solid;
+}
+.alert a {
+	color: #900C3F;
+}
+.alert-content {
+	margin: 0 auto;
+	max-width: 1024px;
+}
 /* .social-links {
 	list-style-type: none;
 	padding-left: 0;
@@ -176,5 +197,11 @@ ul.contact-links {
 	}
 	.column-left {
 		padding-right: 20px;
+	}
+	.alert {
+		text-align: center;
+	}
+	.alert span {
+		display: block;
 	}
 }
