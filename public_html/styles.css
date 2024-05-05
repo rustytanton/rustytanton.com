@@ -146,16 +146,6 @@ ul.contact-links {
 .alert-icon {
 	padding-right: 5px;
 }
-/* .social-links {
-	list-style-type: none;
-	padding-left: 0;
-}
-.social-links li:before {
-	display: none;
-}
-.social-links a {
-	vertical-align: middle;
-} */
 .callout {
 	background: #eee;
 	margin: 10px;
@@ -187,6 +177,12 @@ ul.contact-links {
 }
 .fa-github-alt {
 	background-color: #333;
+}
+.fa-file {
+	background-color: #FF8200;;
+}
+.fa-envelope {
+	background-color: #666666;
 }
 .skills,
 .programming-languages {
