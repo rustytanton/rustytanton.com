@@ -188,8 +188,33 @@ ul.contact-links {
 .programming-languages {
 	font-size: 80%;
 }
-.highlight {
-	background-color: yellow;
+.thumbnail {
+	width: 250px;
+}
+.callout-experience {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px 0;
+	padding: 20px;
+	width: 100%;
+}
+.callout-experience-even {
+	background: #D3D3D3;
+}
+.callout-experience-title {
+	width: 100%;
+}
+.callout-experience-link {
+	width: 100%;
+}
+.callout-experience-link a {
+	color: #000;
+}
+.callout-experience-thumbnail {
+	width: 100%;
+}
+.callout-experience-text {
+	flex: 1;
 }
 @media (min-width: 768px) {
 	footer {
@@ -215,5 +240,14 @@ ul.contact-links {
 	}
 	.alert span {
 		display: block;
+	}
+	.callout-experience-text {
+		padding-right: 20px;
+	}
+	.callout-experience-thumbnail {
+		width: 275px;
+	}
+	.callout-experience-results {
+		width: 300px;
 	}
 }
