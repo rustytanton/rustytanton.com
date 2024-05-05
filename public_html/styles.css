@@ -137,6 +137,7 @@ ul.contact-links {
 	color: #900C3F;
 }
 .alert-content {
+	align-items: center;
 	display: flex;
 	margin: 0 auto;
 	padding: 0 10px;
