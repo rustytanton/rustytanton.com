@@ -153,6 +153,14 @@ ul.contact-links {
 	margin: 10px;
 	padding: 20px;
 }
+.callout img {
+	border: 1px solid #000;
+	display: block;
+	margin: 0 auto 10px auto;
+}
+.callout-title {
+	text-align: center;
+}
 .fa {
 	align-items: center;
 	border-radius: 50%;
