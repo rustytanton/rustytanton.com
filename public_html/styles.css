@@ -198,6 +198,9 @@ ul.contact-links {
 	padding: 20px;
 	width: 100%;
 }
+.callout-experience figure {
+	padding-top: 8px;
+}
 .callout-experience-even {
 	background: #D3D3D3;
 }
@@ -205,6 +208,7 @@ ul.contact-links {
 	width: 100%;
 }
 .callout-experience-link {
+	margin-bottom: 15px;
 	width: 100%;
 }
 .callout-experience-link a {
