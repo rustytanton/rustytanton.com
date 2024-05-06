@@ -365,9 +365,13 @@ a {
 	flex-wrap: wrap;
 	margin: 0 auto;
 }
+.site-footer a {
+	color: var(--color-orange-dark);
+}
 .site-footer-text-container {
 	border-top: 2px var(--color-gray-dark) solid;
 	display: flex;
+	flex-wrap: wrap;
 	max-width: 95%;
 	padding: 70px 0;
 }
@@ -397,6 +401,9 @@ a {
 }
 .site-footer-picture-caption {
 	font-size: var(--font-size-small);
+}
+.site-footer-picture:first-of-type {
+	margin-bottom: 40px;
 }
 .site-footer-picture img {
 	border-radius: 8px;
