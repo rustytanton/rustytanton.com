@@ -227,6 +227,7 @@ a {
 .overview-row {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 40px;
 }
 .overview-header {
 	font-size: var(--font-size-h2);
@@ -283,7 +284,7 @@ a {
 /* experience */
 .experience-heading {
 	font-size: var(--font-size-h1);
-	height: 100px;
+	margin-bottom: 40px;
 }
 .experience-item {
 	display: flex;
@@ -320,6 +321,10 @@ a {
 	width: 400px;
 }
 @media (min-width: 1024px) {
+	.experience-heading {
+		height: 100px;
+		margin-bottom: 0;
+	}
 	.experience-item {
 		flex-direction: row;
 	}
@@ -342,6 +347,9 @@ a {
 	margin-bottom: 60px;
 	width: 100%;
 }
+.more-results-item {
+	margin-bottom: 40px;
+}
 .more-results-item-header {
 	font-size: var(--font-size-h3);
 	margin-bottom: 20px;
@@ -352,6 +360,7 @@ a {
 	.more-results-item {
 		align-items: center;
 		flex: 1;
+		margin-bottom: 0;
 		padding-top: 20px;
 		padding-right: 40px;
 	}
