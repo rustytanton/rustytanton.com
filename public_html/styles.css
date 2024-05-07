@@ -439,7 +439,17 @@ a {
 }
 .site-footer-disclaimers a {
 	color: inherit;
+	font-size: var(--font-size-small);
 	font-weight: normal;
+}
+.site-footer-disclaimers p {
+	font-size: var(--font-size-small);
+}
+@media (min-width: 768px) {
+	.site-footer-disclaimers p,
+	.site-footer-disclaimers a {
+		font-size: var(--font-size-body);
+	}
 }
 @media (min-width: 1024px) {
 	.site-footer-text {
