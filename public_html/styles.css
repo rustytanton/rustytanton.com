@@ -436,6 +436,7 @@ a {
 	width: 100%;
 }
 .site-footer-disclaimers a {
+	color: inherit;
 	font-weight: normal;
 }
 @media (min-width: 1024px) {
