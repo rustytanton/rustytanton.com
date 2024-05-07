@@ -358,10 +358,12 @@ a {
 .more-results-item-header {
 	font-size: var(--font-size-h3);
 	margin-bottom: 20px;
-	white-space: nowrap;
 }
 
 @media (min-width: 1024px) {
+	.more-results-item-header {
+		white-space: nowrap;
+	}
 	.more-results-item {
 		align-items: center;
 		flex: 1;
