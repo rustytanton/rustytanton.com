@@ -82,7 +82,7 @@ a {
 .row:first-of-type {
 	padding-top: calc(var(--alert-height));
 }
-.row:nth-child(even) {
+.row:nth-child(odd) {
 	background-color: var(--color-white);
 }
 .row-content {
