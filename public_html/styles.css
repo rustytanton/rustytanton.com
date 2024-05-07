@@ -318,7 +318,12 @@ a {
 	border-radius: 8px;
 	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.2);
 	height: auto;
-	width: 400px;
+	width: 100%;
+}
+@media (min-width: 768px) {
+	.experience-item-screenshot img {
+		width: 400px;
+	}
 }
 @media (min-width: 1024px) {
 	.experience-heading {
@@ -385,6 +390,7 @@ a {
 	padding: 70px 0;
 }
 .site-footer-text {
+	padding: 0 40px;
 	width: 100%;
 }
 .site-footer-header {
@@ -397,6 +403,7 @@ a {
 .site-footer-pictures {
 	display: flex;
 	flex-wrap: wrap;
+	padding-left: 40px;
 }
 .site-footer-picture {
 	flex: 1;
@@ -434,11 +441,12 @@ a {
 @media (min-width: 1024px) {
 	.site-footer-text {
 		flex: 1;
+		padding-left: 0;
 		padding-right: 40px;
-
 	}
 	.site-footer-pictures {
 		flex-wrap: nowrap;
+		padding-left: 0;
 	}
 }
 @media (min-width: 1275px) {
