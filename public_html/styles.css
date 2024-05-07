@@ -173,6 +173,10 @@ a {
 	font-size: var(--font-size-h1);
 	margin-bottom: 10px;
 }
+.header-main h1 span {
+	font-family: inherit;
+	font-size: inherit;
+}
 .header-main-subtitle {
 	font-size: var(--font-size-h3);
 	font-style: italic;
