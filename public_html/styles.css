@@ -21,6 +21,7 @@
 	/* margins */
 	--margin-base: 10px;
 
+	--alert-height: 150px;
 	/*
 	Added by Javascript:
 	--alert-height
@@ -108,7 +109,7 @@ a {
 		padding-bottom: 10px;
 	}
 }
-@media (min-width: 1275px) {
+@media (min-width: 1375px) {
 	.row-content {
 		max-width: 1250px;
 	}
@@ -470,9 +471,9 @@ a {
 		padding-left: 0;
 	}
 }
-@media (min-width: 1275px) {
+@media (min-width: 1375px) {
 	.site-footer-text-container {
-		max-width: 1225px;
+		max-width: 1250px;
 		padding-top: 120px;
 	}
 }
