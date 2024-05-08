@@ -35,7 +35,11 @@
 				<div class="row-content">
 					<header class="header-main">
 						<div class="header-main-picture">
-							<img itemprop="image" alt="Picture: Rusty Tanton" src="assets/rusty.jpg">
+							<picture>
+								<source srcset="assets/rusty-small.jpg" width="200" height="200" media="(max-width: 767px)">
+								<source srcset="assets/rusty.jpg" width="300" height="300" >
+								<img itemprop="image" alt="Picture: Rusty Tanton" src="assets/rusty.jpg" width="300" height="300">
+							</picture>
 						</div>
 						<div class="header-main-text">
 							<h1 itemprop="name"><span itemprop="givenName">Rusty</span> <span itemprop="familyName">Tanton</span></h1>
