@@ -173,7 +173,8 @@ a {
 	font-size: var(--font-size-h1);
 	margin-bottom: 10px;
 }
-.header-main h1 span {
+.header-main span {
+	color: inherit;
 	font-family: inherit;
 	font-size: inherit;
 }
