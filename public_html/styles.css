@@ -83,6 +83,13 @@ a {
 	font-weight: bold;
 }
 
+/* span base styles */
+span {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+}
+
 /* rows */
 .row {
 	display: flex;
@@ -172,11 +179,6 @@ a {
 .header-main h1 {
 	font-size: var(--font-size-h1);
 	margin-bottom: 10px;
-}
-.header-main span {
-	color: inherit;
-	font-family: inherit;
-	font-size: inherit;
 }
 .header-main-subtitle {
 	font-size: var(--font-size-h3);
