@@ -3,7 +3,7 @@
 	<head>
 		<title>Rusty Tanton</title>
 		<link 
-			href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i%7COpen+Sans:400,400i,600,600i,700,700i"
+			href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i%7COpen+Sans:400,400i,600,600i,700,700i&display=swap"
 			rel="preload"
 			as="style"
 			onload="this.onload=null;this.rel='stylesheet'"
@@ -15,7 +15,7 @@
 			onload="this.onload=null;this.rel='stylesheet'"
 		>
 		<noscript>
-			<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i%7COpen+Sans:400,400i,600,600i,700,700i" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i%7COpen+Sans:400,400i,600,600i,700,700i&display=swap" rel="stylesheet">
 			<link href="styles.css" rel="stylesheet">
 		</noscript>
 		<script src="index.js" async></script>
@@ -36,8 +36,9 @@
 					<header class="header-main">
 						<div class="header-main-picture">
 							<picture>
-								<source srcset="assets/rusty-small.jpg" width="200" height="200" media="(max-width: 767px)">
-								<source srcset="assets/rusty.jpg" width="300" height="300" >
+								<source type="image/webp" srcset="assets/rusty.webp" width="200" height="200" media="(max-width: 767px)">
+								<source srcset="assets/rusty.jpg" width="200" height="200" media="(max-width: 767px)">								
+								<source type="image/webp" srcset="assets/rusty.webp" width="300" height="300" >
 								<img itemprop="image" alt="Picture: Rusty Tanton" src="assets/rusty.jpg" width="300" height="300">
 							</picture>
 						</div>
@@ -154,7 +155,14 @@
 						<div class="experience-item">
 							<div class="experience-item-screenshot">
 								<a href="assets/loyal-campaign-creation.png">
-									<img class="thumbnail" alt="Screenshot from Loyal Campaign Builder" src="assets/thumbnail-loyal-campaign-creation.jpg">
+									<picture>
+										<source type="image/webp" srcset="assets/thumbnail-loyal-campaign-creation.webp" width="250" height="250" media="(max-width: 767px)">
+										<source srcset="assets/thumbnail-loyal-campaign-creation.jpg" width="250" height="250" media="(max-width: 767px)">
+										<source type="image/webp" srcset="assets/thumbnail-loyal-campaign-creation.webp" width="400" height="400" media="(max-width: 1023px)">
+										<source srcset="assets/thumbnail-loyal-campaign-creation.jpg" width="400" height="400" media="(max-width: 1023px)">
+										<source type="image/webp" srcset="assets/thumbnail-loyal-campaign-creation.webp" width="465" height="465">
+										<img class="thumbnail" alt="Screenshot from Loyal Campaign Builder" width="465" height="465" src="assets/thumbnail-loyal-campaign-creation.jpg">
+									</picture>
 								</a>
 							</div>
 							<div class="experience-item-text">
@@ -173,7 +181,14 @@
 						<div class="experience-item">
 							<div class="experience-item-screenshot">
 								<a href="assets/webmd-blogs.png">
-									<img class="thumbnail" alt="Screenshot from WebMD Blogs" src="assets/webmd-blogs.jpg">
+									<picture>
+										<source type="image/webp" srcset="assets/webmd-blogs.webp" width="250" height="250" media="(max-width: 767px)">
+										<source srcset="assets/webmd-blogs.jpg" width="250" height="250" media="(max-width: 767px)">
+										<source type="image/webp" srcset="assets/webmd-blogs.webp" width="400" height="400" media="(max-width: 1023px)">
+										<source srcset="assets/webmd-blogs.jpg" width="400" height="400" media="(max-width: 1023px)">
+										<source type="image/webp" srcset="assets/webmd-blogs.webp" width="465" height="465">
+										<img class="thumbnail" alt="Screenshot from WebMD Blogs" width="465" height="465" src="assets/webmd-blogs.jpg">
+									</picture>
 								</a>
 							</div>
 							<div class="experience-item-text">
@@ -191,8 +206,15 @@
 
 						<div class="experience-item">
 							<div class="experience-item-screenshot">
-								<a href="assets/thumbnail-ajga.jpg">
-									<img class="thumbnail" alt="Screenshot from AJGA" src="assets/ajga.png">
+								<a href="assets/ajga.jpg">
+									<picture>
+										<source type="image/webp" srcset="assets/thumbnail-ajga.webp" width="250" height="250" media="(max-width: 767px)">
+										<source srcset="assets/thumbnail-ajga.jpg" width="250" height="250" media="(max-width: 767px)">
+										<source type="image/webp" srcset="assets/thumbnail-ajga.webp" width="400" height="400" media="(max-width: 1023px)">
+										<source srcset="assets/thumbnail-ajga.jpg" width="400" height="400" media="(max-width: 1023px)">
+										<source type="image/webp" srcset="assets/thumbnail-ajga.webp" width="465" height="465">
+										<img class="thumbnail" alt="Screenshot from AJGA" width="465" height="465" src="assets/thumbnail-ajga.jpg">
+									</picture>
 								</a>
 							</div>
 							<div class="experience-item-text">
@@ -248,12 +270,22 @@
 				</div>
 				<div class="site-footer-pictures">
 					<div class="site-footer-picture">
-						<a href="assets/family.jpg"><img alt="Picture - Rusty's Family" width="250" height="250" src="assets/family.jpg"></a>
+						<a href="assets/family.jpg">
+							<picture>
+								<source type="image/webp" srcset="assets/thumbnail-family.webp" width="250" height="250">
+								<img  alt="Picture - Rusty's Family" width="250" height="250" src="assets/thumbnail-family.jpg">
+							</picture>
+						</a>
 						<div class="site-footer-picture-text">This is my family...</div>
 						<div class="site-footer-picture-caption">L to R: <span itemprop="spouse">Amber</span>, <span itemprop="children">James</span> (10), <span itemprop="children">Fitz</span> (13), and Rusty</div>
 					</div>
 					<div class="site-footer-picture">
-						<a href="assets/dogs.jpg"><img alt="Picture - Rusty's Dogs" width="250" height="250" src="assets/dogs.jpg"></a>
+						<a href="assets/dogs.jpg">
+							<picture>
+								<source type="image/webp" srcset="assets/thumbnail-dogs.webp" width="250" height="250">
+								<img alt="Picture - Rusty's Dogs" width="250" height="250" src="assets/thumbnail-dogs.jpg">
+							</picture>
+						</a>
 						<div class="site-footer-picture-text">And these are my dogs!</div>
 						<div class="site-footer-picture-caption">L to R: Nosey (3 human years) and Panda (1 human year)</div>
 					</div>

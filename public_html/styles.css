@@ -202,7 +202,7 @@ span {
 	margin-bottom: 15px;
 }
 .header-main a {
-	color: var(--color-orange-dark);
+	color: var(--color-orange-dark2);
 }
 .header-main-links {
 	display: flex;
@@ -344,7 +344,7 @@ span {
 	border-radius: 8px;
 	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.2);
 	height: auto;
-	width: 100%;
+	width: 250px;
 }
 @media (min-width: 768px) {
 	.experience-item-screenshot img {
@@ -408,7 +408,7 @@ span {
 	margin: 0 auto;
 }
 .site-footer a {
-	color: var(--color-orange-dark);
+	color: var(--color-orange-dark2);
 }
 .site-footer-text-container {
 	border-top: 2px var(--color-gray-dark) solid;
