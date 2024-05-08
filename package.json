@@ -5,7 +5,7 @@
   "author": "Rusty Tanton",
   "homepage": "https://github.com/rustytanton/rustytanton.com#readme",
   "scripts": {
-    "start": "browser-sync start --server --files \"public_html/*\" --ss \"public_html\""
+    "start": "browser-sync start --config bs-config.js"
   },
   "devDependencies": {
     "browser-sync": "^3.0.2"
