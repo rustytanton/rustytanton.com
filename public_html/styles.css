@@ -191,7 +191,7 @@ span {
 	margin-bottom: 15px;
 }
 .header-main a {
-	color: var(--color-orange-dark2);
+	color: var(--color-orange-dark);
 }
 .header-main-links {
 	display: flex;
@@ -397,7 +397,7 @@ span {
 	margin: 0 auto;
 }
 .site-footer a {
-	color: var(--color-orange-dark2);
+	color: var(--color-orange-dark);
 }
 .site-footer-text-container {
 	border-top: 2px var(--color-gray-dark) solid;
