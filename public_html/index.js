@@ -12,6 +12,8 @@ window.addEventListener('load', () => {
 
     // only add the event listener if the element exists
     if (elAlert) {
+        document.body.classList.add('with-alert')
+
         // call on window resize
         window.addEventListener('resize', () => {
             handleWindowResize(elRoot, elAlert)
