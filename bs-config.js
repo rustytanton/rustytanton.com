@@ -40,6 +40,14 @@ module.exports = {
                 const d = new Date()
                 return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
             }
+        },
+        // simulates the static rewrite that happens in the github publish workflow
+        // so that localhost will preview a properly-formatted version string
+        {
+            match: /{{VERSION}}/g,
+            fn: function (req, res, match) {
+                return new Date().getTime()
+            }
         }
     ],
     "server": {

@@ -15,6 +15,7 @@ jobs:
       - name: index.html token substitution
         run: |
           sed -i "s/{{DATE_TODAY}}/$(date +'%b %e, %Y')/g" ${GITHUB_WORKSPACE}/public_html/index.html
+          sed -i "s/{{VERSION}}/$(date +'%s')/g" ${GITHUB_WORKSPACE}/public_html/index.html
 
       - name: SCP files to web server
         uses: appleboy/scp-action@v0.1.7
