@@ -1,3 +1,5 @@
+/* global window, document */
+
 function handleWindowResize(elRoot, elAlert) {
 
     // set a CSS var for the alert height
@@ -25,3 +27,7 @@ window.addEventListener('load', () => {
         document.body.classList.add('with-alert')
     }
 })
+
+// committing with an error initially to make sure the github action
+// does not deploy when a lint error is found
+intentional_lint_error>

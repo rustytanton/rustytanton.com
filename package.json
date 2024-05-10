@@ -5,9 +5,11 @@
   "author": "Rusty Tanton",
   "homepage": "https://github.com/rustytanton/rustytanton.com#readme",
   "scripts": {
-    "start": "browser-sync start --config bs-config.js"
+    "start": "browser-sync start --config bs-config.js",
+    "lint": "npx eslint public_html/index.js"
   },
   "devDependencies": {
-    "browser-sync": "^3.0.2"
+    "browser-sync": "^3.0.2",
+    "@eslint/js": "^9.2.0"
   }
 }
