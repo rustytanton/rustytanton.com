@@ -363,6 +363,11 @@ so I'm leaving it
 	margin-bottom: 20px;
 }
 
+/**
+ * The linter doesn't like this but it wouldn't actually cause any specificty problems
+ * I don't want to disable to the rule generally though because I caught a couple of
+ * real errors with it.
+ */
 /* stylelint-disable-next-line no-descending-specificity */
 .experience-item-text p {
 	line-height: 1.5;
@@ -484,6 +489,11 @@ so I'm leaving it
 	margin-bottom: 40px;
 }
 
+/**
+ * The linter doesn't like this but it wouldn't actually cause any specificty problems
+ * I don't want to disable to the rule generally though because I caught a couple of
+ * real errors with it.
+ */
 /* stylelint-disable-next-line no-descending-specificity */
 .site-footer p {
 	margin-bottom: 20px;
@@ -529,6 +539,11 @@ so I'm leaving it
 	width: 100%;
 }
 
+/**
+ * The linter doesn't like this but it wouldn't actually cause any specificty problems
+ * I don't want to disable to the rule generally though because I caught a couple of
+ * real errors with it.
+ */
 /* stylelint-disable-next-line no-descending-specificity */
 .site-footer-disclaimers a {
 	color: inherit;
@@ -536,6 +551,11 @@ so I'm leaving it
 	font-weight: normal;
 }
 
+/**
+ * The linter doesn't like this but it wouldn't actually cause any specificty problems
+ * I don't want to disable to the rule generally though because I caught a couple of
+ * real errors with it.
+ */
 /* stylelint-disable-next-line no-descending-specificity */
 .site-footer-disclaimers p {
 	font-size: var(--font-size-small);
