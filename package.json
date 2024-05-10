@@ -6,10 +6,12 @@
   "homepage": "https://github.com/rustytanton/rustytanton.com#readme",
   "scripts": {
     "start": "browser-sync start --config bs-config.js",
-    "lint": "npx eslint public_html/index.js"
+    "lint": "npx --yes eslint public_html/index.js && npx --yes stylelint public_html/styles.css"
   },
   "devDependencies": {
+    "@eslint/js": "^9.2.0",
     "browser-sync": "^3.0.2",
-    "@eslint/js": "^9.2.0"
+    "stylelint": "^16.5.0",
+    "stylelint-config-standard": "^36.0.0"
   }
 }

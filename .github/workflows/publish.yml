@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       
-      - name: Lint JS
+      - name: Lint JS and CSS
         run: npm run lint
 
       - name: index.html token substitution
