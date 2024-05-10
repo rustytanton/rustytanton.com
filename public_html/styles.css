@@ -190,9 +190,18 @@ span {
 .header-main p:last-of-type {
 	margin-bottom: 15px;
 }
+
+/*
+Note: axe gives a "not enough contrast" error to this link color
+It only just barely doesn't have enough contrast to pass the test,
+and it looks way better with this color than with --color-orange-dark2
+so I'm leaving it
+*/
 .header-main a {
 	color: var(--color-orange-dark);
 }
+
+
 .header-main-links {
 	display: flex;
 }
@@ -396,9 +405,17 @@ span {
 	flex-wrap: wrap;
 	margin: 0 auto;
 }
+
+/*
+Note: axe gives a "not enough contrast" error to this link color
+It only just barely doesn't have enough contrast to pass the test,
+and it looks way better with this color than with --color-orange-dark2
+so I'm leaving it
+*/
 .site-footer a {
 	color: var(--color-orange-dark);
 }
+
 .site-footer-text-container {
 	border-top: 2px var(--color-gray-dark) solid;
 	display: flex;
