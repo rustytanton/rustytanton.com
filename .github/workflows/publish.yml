@@ -27,6 +27,9 @@ jobs:
       - name: Lint JS and CSS
         run: npm run lint
       
+      - name: Minify CSS
+        run: npm run minifycss && rm ${GITHUB_WORKSPACE}/public_html/styles.css
+      
       - name: Minify JS
         run: npm run minifyjs && rm ${GITHUB_WORKSPACE}/public_html/index.js
 

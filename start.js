@@ -2,19 +2,58 @@ const { minify } = require('terser')
 const { ESLint } = require("eslint")
 const eslint = new ESLint()
 const fs = require('fs')
+const bs = require('browser-sync').create()
+const cssMinify = require('css-minify')
+const stylelint = require('stylelint')
 
 // Functions
-async function minifyJs() {
-    const jsSrc = fs.readFileSync('public_html/index.js', 'utf-8')
-    const jsMin = await minify(jsSrc, {
-        sourceMap: {
-            filename: 'index.js',
-            url: '/index.min.js.map'
-        }
+async function minifyCss() {
+    (async function() {
+        const cssSrc = fs.readFileSync('public_html/styles.css', 'utf-8')
+        fs.writeFileSync('public_html/styles.min.css', await cssMinify(cssSrc))
+    })().catch(function(error) {
+        console.error(Object.keys(error))
+        console.error(`[css-minify] ${error.file}, line ${error.line}, column ${error.column}:`)
+        console.error(`[css-minify] ${error.name} - ${error.reason}`)
+        console.error('')
     })
-    fs.writeFileSync('public_html/index.min.js', jsMin.code)
-    fs.writeFileSync('public_html/index.min.js.map', jsMin.map)
 }
+
+async function minifyJs() {
+    (async function() {
+        const jsSrc = fs.readFileSync('public_html/index.js', 'utf-8')
+        const jsMin = await minify(jsSrc, {
+            sourceMap: {
+                filename: 'index.js',
+                url: '/index.min.js.map'
+            }
+        })
+        fs.writeFileSync('public_html/index.min.js', jsMin.code)
+        fs.writeFileSync('public_html/index.min.js.map', jsMin.map)
+    })().catch(function(error) {
+        console.error(error)
+    })
+}
+
+async function lintCss() {
+    (async function() {
+        await stylelint.lint({
+            files: ['public_html/styles.css'],
+            formatter: function(results) {
+                for ([key, result] of Object.entries(results)) {
+                    console.log(`[stylelint] Linting ${result.source}:`)
+                    for ([wkey, warning] of Object.entries(result.warnings)) {
+                        console.error(`[stylelint] Line ${warning.line}, column ${warning.column}:`)
+                        console.error(`[stylelint] ${warning.text}`)
+                    }
+                }
+            }
+        })
+    })().catch(function(error) {
+        console.error(error)
+    })
+}
+
 async function lintJs() {
     (async function() {
         console.log('Linting Javascript...')
@@ -27,14 +66,15 @@ async function lintJs() {
     })
 }
 
-// Create a Browsersync instance
-const bs = require('browser-sync').create()
-
-// Reload when the HTML or CSS changes
+// Reload when the HTML changes
 bs.watch('public_html/index.html').on('change', function() {
     bs.reload()
 })
+
+// Lint, minify, then reload when CSS source changes
 bs.watch('public_html/styles.css').on('change', function() {
+    lintCss()
+    minifyCss()
     bs.reload()
 })
 
@@ -45,7 +85,8 @@ bs.watch('public_html/index.js').on('change', async function() {
     bs.reload()
 }, {})
 
-// minify JS once on load
+// minify CSS and JS once on load
+minifyCss()
 minifyJs()
 
 // Init Browsersync

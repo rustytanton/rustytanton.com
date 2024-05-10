@@ -1,5 +1,6 @@
 deploy_key
 node_modules
 .DS_Store
+*.min.css
 *.min.js
 *.map
