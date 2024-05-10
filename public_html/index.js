@@ -12,7 +12,6 @@ window.addEventListener('load', () => {
 
     // only add the event listener if the element exists
     if (elAlert) {
-        document.body.classList.add('with-alert')
 
         // call on window resize
         window.addEventListener('resize', () => {
@@ -21,5 +20,8 @@ window.addEventListener('load', () => {
 
         // call once on load
         handleWindowResize(elRoot, elAlert)
+
+        // now that --alert-height is set, can make the alert position: fixed
+        document.body.classList.add('with-alert')
     }
 })
