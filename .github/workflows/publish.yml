@@ -26,6 +26,9 @@ jobs:
 
       - name: Lint JS and CSS
         run: npm run lint
+      
+      - name: Minify JS
+        run: npm run minifyjs && rm ${GITHUB_WORKSPACE}/public_html/index.js
 
       - name: index.html token substitution
         run: |
