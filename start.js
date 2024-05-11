@@ -1,10 +1,11 @@
-const { minify } = require('terser')
-const { ESLint } = require("eslint")
+import cssMinify from 'css-minify'
+import { minify } from 'terser'
+import { ESLint } from 'eslint'
+import fs from 'fs'
+import stylelint from 'stylelint'
+import browsersync from 'browser-sync'
+const bs = browsersync.create()
 const eslint = new ESLint()
-const fs = require('fs')
-const bs = require('browser-sync').create()
-const cssMinify = require('css-minify')
-const stylelint = require('stylelint')
 
 // Functions
 async function minifyCss() {
@@ -12,7 +13,6 @@ async function minifyCss() {
         const cssSrc = fs.readFileSync('public_html/styles.css', 'utf-8')
         fs.writeFileSync('public_html/styles.min.css', await cssMinify(cssSrc))
     })().catch(function(error) {
-        console.error(Object.keys(error))
         console.error(`[css-minify] ${error.file}, line ${error.line}, column ${error.column}:`)
         console.error(`[css-minify] ${error.name} - ${error.reason}`)
         console.error('')
@@ -40,13 +40,13 @@ async function lintCss() {
         await stylelint.lint({
             files: ['public_html/styles.css'],
             formatter: function(results) {
-                for ([key, result] of Object.entries(results)) {
-                    console.log(`[stylelint] Linting ${result.source}:`)
-                    for ([wkey, warning] of Object.entries(result.warnings)) {
+                results.forEach((result) => {
+                    console.log(`[stylelint] Linting ${result.source}`)
+                    result.warnings.forEach((warning) => {
                         console.error(`[stylelint] Line ${warning.line}, column ${warning.column}:`)
                         console.error(`[stylelint] ${warning.text}`)
-                    }
-                }
+                    })
+                })
             }
         })
     })().catch(function(error) {

@@ -4,6 +4,7 @@
   "description": "Static HTML for rustytanton.com",
   "author": "Rusty Tanton",
   "homepage": "https://github.com/rustytanton/rustytanton.com#readme",
+  "type": "module",
   "scripts": {
     "start": "node start.js",
     "lint": "npx eslint public_html/index.js && npx stylelint public_html/styles.css",
