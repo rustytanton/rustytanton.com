@@ -1,29 +1,44 @@
-/* global window, document */
+/* global customElements, document, HTMLElement, window */
 
-function handleWindowResize(elRoot, elAlert) {
+class StickyAlert extends HTMLElement {
+    bodyClass = 'with-sticky-alert'
+    cssVarName = '--alert-height'
 
-    // set a CSS var for the alert height
-    elRoot.style.setProperty('--alert-height', elAlert.offsetHeight + 'px');
+    connectedCallback() {
+        this.addWindowLoadEvent()
+        this.addWindowResizeEvent()        
+    }
+
+    addBodyClass() {
+        document.body.classList.add(this.bodyClass)
+    }
+
+    addWindowLoadEvent() {
+        let self = this
+        window.addEventListener('load', () => {
+            self.handleWindowLoadEvent()
+        })
+    }
+
+    handleWindowLoadEvent() {
+        let elRoot = document.querySelector(':root')
+        this.handleResizeEvent(elRoot)
+        this.addBodyClass()
+    }
+
+    addWindowResizeEvent() {
+        let elRoot = document.querySelector(':root')
+        let self = this
+        window.addEventListener('resize', () => {
+            self.handleResizeEvent(elRoot)
+        })
+    }
+
+    handleResizeEvent(elRoot) {
+        if (elRoot) {
+            elRoot.style.setProperty(this.cssVarName, this.offsetHeight + 'px');
+        }
+    }
 }
 
-
-window.addEventListener('load', () => {
-    // cache elements so we're not querying the DOM over and over
-    const elAlert = document.querySelector('.alert')
-    const elRoot = document.querySelector(':root')
-
-    // only add the event listener if the element exists
-    if (elAlert) {
-
-        // call on window resize
-        window.addEventListener('resize', () => {
-            handleWindowResize(elRoot, elAlert)
-        })
-
-        // call once on load
-        handleWindowResize(elRoot, elAlert)
-
-        // now that --alert-height is set, can make the alert position: fixed
-        document.body.classList.add('with-alert')
-    }
-})
+customElements.define('sticky-alert', StickyAlert)

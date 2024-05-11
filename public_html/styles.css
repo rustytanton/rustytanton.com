@@ -90,7 +90,7 @@ span {
 	background-color: var(--color-white);
 }
 
-.with-alert .row:first-of-type {
+.with-sticky-alert .row:first-of-type {
 	padding-top: calc(var(--alert-height));
 }
 
@@ -149,8 +149,9 @@ span {
 }
 
 /* alert */
-.alert {
+sticky-alert {
 	background-color: var(--color-orange-light);
+	display: block;
 	padding: 35px;
 	position: relative;
 	text-align: center;
@@ -158,11 +159,11 @@ span {
 	z-index: 1;
 }
 
-.with-alert .alert {
+.with-sticky-alert sticky-alert {
 	position: fixed;
 }
 
-.alert-text {
+.sticky-alert-text {
 	color: var(--color-orange-dark2);
 	line-height: 1.25;
 	margin: 0 auto;
