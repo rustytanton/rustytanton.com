@@ -1,3 +1,4 @@
+import chalk from 'chalk'
 import cssMinify from 'css-minify'
 import { minify } from 'terser'
 import { ESLint } from 'eslint'
@@ -8,14 +9,16 @@ const bs = browsersync.create()
 const eslint = new ESLint()
 
 // Functions
-async function minifyCss() {
+async function minifyCss(showError = false) {
     (async function() {
         const cssSrc = fs.readFileSync('public_html/styles.css', 'utf-8')
         fs.writeFileSync('public_html/styles.min.css', await cssMinify(cssSrc))
     })().catch(function(error) {
-        console.error(`[css-minify] ${error.file}, line ${error.line}, column ${error.column}:`)
-        console.error(`[css-minify] ${error.name} - ${error.reason}`)
-        console.error('')
+        if (showError) {
+            console.error(`[css-minify] ${error.file}, line ${error.line}, column ${error.column}:`)
+            console.error(`[css-minify] ${error.name} - ${error.reason}`)
+            console.error('')
+        }
     })
 }
 
@@ -40,12 +43,32 @@ async function lintCss() {
         await stylelint.lint({
             files: ['public_html/styles.css'],
             formatter: function(results) {
+                console.log('Linting CSS...')
+                console.log('')
                 results.forEach((result) => {
-                    console.log(`[stylelint] Linting ${result.source}`)
+                    console.log(chalk.underline(result.source))
                     result.warnings.forEach((warning) => {
-                        console.error(`[stylelint] Line ${warning.line}, column ${warning.column}:`)
-                        console.error(`[stylelint] ${warning.text}`)
+                        console.error('')
+                        var message = "  " + chalk.gray(warning.line + ':' + warning.column) + "  "
+                        if (warning.severity == 'error') {
+                            message += chalk.red(warning.severity)
+                        } else {
+                            message += warning.severity
+                        }
+                        message += "  " + warning.text + "  " + chalk.gray(warning.rule)
+                        console.error(message)
+                        console.error('')
                     })
+                    if (result.errored) {
+                        if (result.warnings.length == 1) {
+                            console.error(chalk.red('1 error found'))
+                        } else {
+                            console.error(chalk.red(result.warnings.length + ' errors found'))
+                        }
+                    } else {
+                        console.log(chalk.green('No errors or warnings'))
+                    }
+                    console.log('')
                 })
             }
         })
@@ -86,7 +109,7 @@ bs.watch('public_html/index.js').on('change', async function() {
 }, {})
 
 // minify CSS and JS once on load
-minifyCss()
+minifyCss(true)
 minifyJs()
 
 // Init Browsersync
