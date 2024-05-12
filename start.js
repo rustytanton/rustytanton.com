@@ -1,12 +1,10 @@
 import chalk from 'chalk'
 import cssMinify from 'css-minify'
 import { minify } from 'terser'
-import { ESLint } from 'eslint'
 import fs from 'fs'
 import stylelint from 'stylelint'
 import browsersync from 'browser-sync'
 const bs = browsersync.create()
-const eslint = new ESLint()
 
 // Functions
 async function minifyCss(showError = false) {
@@ -77,10 +75,7 @@ async function lintCss() {
 async function lintJs() {
     (async function() {
         console.log('Linting Javascript...')
-        const results = await eslint.lintFiles(['public_html/index.js'])
-        const formatter = await eslint.loadFormatter('stylish')
-        const resultsText = formatter.format(results)
-        console.log(resultsText)
+        
     })().catch(function(error) {
         console.error(error)
     })
