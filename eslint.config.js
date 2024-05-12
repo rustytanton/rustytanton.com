@@ -1,6 +1,10 @@
-import js from '@eslint/js'
+import globals from "globals";
+import pluginJs from "@eslint/js";
 
-// eslint.config.js
+
 export default [
-    js.configs.recommended
+  {
+    languageOptions: { globals: globals.browser }
+  },
+  pluginJs.configs.recommended,
 ];

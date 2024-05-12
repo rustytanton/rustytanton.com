@@ -1,5 +1,3 @@
-/* global customElements, document, HTMLElement, window */
-
 class StickyAlert extends HTMLElement {
     bodyClass = 'with-sticky-alert'
     cssVarName = '--sticky-alert-height'

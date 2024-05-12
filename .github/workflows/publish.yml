@@ -24,8 +24,11 @@ jobs:
       - name: Install NodeJS dependencies
         run: npm ci
 
-      - name: Lint JS and CSS
-        run: npm run lint
+      - name: Lint CSS
+        run: npm run lintcss
+
+      - name: Lint JS
+        run: npm run lintjs
       
       - name: Minify CSS
         run: npm run minifycss && rm ${GITHUB_WORKSPACE}/public_html/styles.css
