@@ -23,7 +23,7 @@
 
 	/* Set by Javascript */
 
-	/* --alert-height */
+	/* --sticky-alert-height */
 }
 
 /* light reset */
@@ -91,7 +91,7 @@ span {
 }
 
 .with-sticky-alert .row:first-of-type {
-	padding-top: calc(var(--alert-height));
+	padding-top: var(--sticky-alert-height);
 }
 
 .row-content {

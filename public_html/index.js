@@ -2,7 +2,7 @@
 
 class StickyAlert extends HTMLElement {
     bodyClass = 'with-sticky-alert'
-    cssVarName = '--alert-height'
+    cssVarName = '--sticky-alert-height'
 
     connectedCallback() {
         this.addWindowLoadEvent()
@@ -22,7 +22,7 @@ class StickyAlert extends HTMLElement {
 
     handleWindowLoadEvent() {
         let elRoot = document.querySelector(':root')
-        this.handleResizeEvent(elRoot)
+        this.handleWindowResizeEvent(elRoot)
         this.addBodyClass()
     }
 
@@ -30,11 +30,11 @@ class StickyAlert extends HTMLElement {
         let elRoot = document.querySelector(':root')
         let self = this
         window.addEventListener('resize', () => {
-            self.handleResizeEvent(elRoot)
+            self.handleWindowResizeEvent(elRoot)
         })
     }
 
-    handleResizeEvent(elRoot) {
+    handleWindowResizeEvent(elRoot) {
         if (elRoot) {
             elRoot.style.setProperty(this.cssVarName, this.offsetHeight + 'px');
         }
