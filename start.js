@@ -26,10 +26,7 @@ async function minifyJs() {
     (async function() {
         const jsSrc = fs.readFileSync('public_html/index.js', 'utf-8')
         const jsMin = await minify(jsSrc, {
-            sourceMap: {
-                filename: 'index.js',
-                url: '/index.min.js.map'
-            }
+            sourceMap: true
         })
         fs.writeFileSync('public_html/index.min.js', jsMin.code)
         fs.writeFileSync('public_html/index.min.js.map', jsMin.map)
