@@ -34,10 +34,10 @@ jobs:
         run: npm run compilets
       
       - name: Minify CSS
-        run: npm run minifycss && rm ${GITHUB_WORKSPACE}/public_html/styles.css
+        run: npm run minifycss
       
       - name: Minify JS
-        run: npm run minifyjs && rm ${GITHUB_WORKSPACE}/public_html/index.js
+        run: npm run minifyjs
 
       - name: index.html token substitution
         run: |
