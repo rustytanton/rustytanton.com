@@ -21,7 +21,7 @@ function stickyAlertHandleLoadEvent (stickyAlert: StickyAlert): void {
 }
 
 function stickyAlertAttach (el: HTMLElement): void {
-  const stickyAlert: StickyAlert = {
+  let stickyAlert: StickyAlert = {
     element: el,
     elementRoot: document.querySelector(':root') as HTMLElement
   }

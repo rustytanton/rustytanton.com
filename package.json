@@ -7,12 +7,12 @@
   "type": "module",
   "scripts": {
     "start": "node start.js",
-    "compilets": "npx tsc --sourceMap public_html/index.ts",
+    "compilets": "npx tsc",
     "lintts": "npx ts-standard public_html/index.ts",
     "lintcss": "npx stylelint public_html/styles.css",
     "minifycss": "npx css-minify -d public_html -o public_html",
     "minifyjs": "npx terser public_html/index.js -o public_html/index.min.js --source-map",
-    "clean": "rm -rf ./node_modules ./public_html/index.js ./public_html/index.min.js ./public_html/styles.min.css ./public_html/index.min.js.map"
+    "clean": "rm -rf ./node_modules ./public_html/*.js ./public_html/*.map ./public_html/*.min.css"
   },
   "devDependencies": {
     "browser-sync": "^3.0.2",

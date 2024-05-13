@@ -1,4 +1,6 @@
 {
     "standard.engine": "ts-standard",
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "standard.usePackageJson": true,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "js/ts.implicitProjectConfig.target": "ESNext"
 }
