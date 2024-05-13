@@ -149,7 +149,7 @@ span {
 }
 
 /* alert */
-sticky-alert {
+.sticky-alert {
 	background-color: var(--color-orange-light);
 	display: block;
 	padding: 35px;
@@ -159,7 +159,7 @@ sticky-alert {
 	z-index: 1;
 }
 
-.with-sticky-alert sticky-alert {
+.with-sticky-alert .sticky-alert {
 	position: fixed;
 }
 

@@ -4,10 +4,22 @@ import { minify } from 'terser'
 import fs from 'fs'
 import stylelint from 'stylelint'
 import browsersync from 'browser-sync'
-import standard from 'standard'
+import standard from 'ts-standard'
+import ts from 'typescript'
 const bs = browsersync.create()
+const tsConfig = JSON.parse(fs.readFileSync('tsconfig.json', 'utf-8'))
 
 // Functions
+async function compileTs () {
+  (async function () {
+    console.log('Compiling Typescript to Javascript...')
+    const program = ts.createProgram(['public_html/index.ts'], tsConfig)
+    program.emit()
+  })().catch(function (error) {
+    console.error(error)
+  })
+}
+
 async function minifyCss (showError = false) {
   (async function () {
     const cssSrc = fs.readFileSync('public_html/styles.css', 'utf-8')
@@ -28,7 +40,6 @@ async function minifyJs () {
       sourceMap: true
     })
     fs.writeFileSync('public_html/index.min.js', jsMin.code)
-    fs.writeFileSync('public_html/index.min.js.map', jsMin.map)
   })().catch(function (error) {
     console.error(error)
   })
@@ -75,8 +86,8 @@ async function lintCss () {
 
 async function lintJs () {
   (async function () {
-    console.log('Linting Javascript...')
-    standard.lintFiles(['public_html/index.js']).then((results) => {
+    console.log('Linting Typescript...')
+    standard.lintFiles(['public_html/index.ts']).then((results) => {
       results.forEach((result) => {
         if (result.messages.length > 0) {
           console.error('')
@@ -113,14 +124,16 @@ bs.watch('public_html/styles.css').on('change', function () {
 })
 
 // Lint, minify, then reload when JS source changes
-bs.watch('public_html/index.js').on('change', async function () {
+bs.watch('public_html/index.ts').on('change', async function () {
   lintJs()
+  compileTs()
   minifyJs()
   bs.reload()
 }, {})
 
 // minify CSS and JS once on load
 minifyCss(true)
+compileTs()
 minifyJs()
 
 // Init Browsersync

@@ -27,8 +27,11 @@ jobs:
       - name: Lint CSS
         run: npm run lintcss
 
-      - name: Lint JS
-        run: npm run lintjs
+      - name: Lint Typescript
+        run: npm run lintts
+      
+      - name: Compile Typescript
+        run: npm run compilets
       
       - name: Minify CSS
         run: npm run minifycss && rm ${GITHUB_WORKSPACE}/public_html/styles.css

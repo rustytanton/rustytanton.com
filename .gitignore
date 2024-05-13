@@ -1,6 +1,6 @@
 deploy_key
 node_modules
 .DS_Store
+public_html/*.js
 *.min.css
-*.min.js
 *.map
