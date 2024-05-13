@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "start": "node start.js",
-    "compilets": "npx tsc public_html/index.ts",
+    "compilets": "npx tsc --sourceMap public_html/index.ts",
     "lintts": "npx ts-standard public_html/index.ts",
     "lintcss": "npx stylelint public_html/styles.css",
     "minifycss": "npx css-minify -d public_html -o public_html",
@@ -15,23 +15,15 @@
     "clean": "rm -rf ./node_modules ./public_html/index.js ./public_html/index.min.js ./public_html/styles.min.css ./public_html/index.min.js.map"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.24.5",
-    "@eslint/js": "^9.2.0",
     "browser-sync": "^3.0.2",
     "chalk": "^5.3.0",
     "css-minify": "^2.0.0",
-    "eslint": "^8.57.0",
-    "globals": "^15.2.0",
     "prettier": "^3.2.5",
-    "prettier-eslint": "^16.3.0",
     "standard": "^17.1.0",
     "stylelint": "^16.5.0",
     "stylelint-config-standard": "^36.0.0",
     "terser": "^5.31.0",
-    "ts-standard": "^12.0.2",
-    "typescript": "^5.1.6",
-    "typescript-eslint": "^7.8.0",
-    "typescript-eslint-language-service": "^5.0.5"
+    "ts-standard": "^12.0.2"
   },
   "ts-standard": {
     "project": "./tsconfig.json"
