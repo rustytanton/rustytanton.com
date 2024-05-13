@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "start": "node start.js",
-    "lintjs": "echo lintjs",
+    "lintjs": "npx standard public_html/index.js",
     "lintcss": "npx stylelint public_html/styles.css",
     "minifycss": "npx css-minify -d public_html -o public_html",
     "minifyjs": "npx terser public_html/index.js -o public_html/index.min.js --source-map",
@@ -18,6 +18,7 @@
     "chalk": "^5.3.0",
     "css-minify": "^2.0.0",
     "prettier": "^3.2.5",
+    "standard": "^17.1.0",
     "stylelint": "^16.5.0",
     "stylelint-config-standard": "^36.0.0",
     "terser": "^5.31.0"

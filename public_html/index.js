@@ -1,42 +1,43 @@
+/* globals customElements, HTMLElement */
 class StickyAlert extends HTMLElement {
-    bodyClass = 'with-sticky-alert'
-    cssVarName = '--sticky-alert-height'
+  bodyClass = 'with-sticky-alert'
+  cssVarName = '--sticky-alert-height'
 
-    connectedCallback() {
-        this.addWindowLoadEvent()
-        this.addWindowResizeEvent()        
-    }
+  connectedCallback () {
+    this.addWindowLoadEvent()
+    this.addWindowResizeEvent()
+  }
 
-    addBodyClass() {
-        document.body.classList.add(this.bodyClass)
-    }
+  addBodyClass () {
+    document.body.classList.add(this.bodyClass)
+  }
 
-    addWindowLoadEvent() {
-        let self = this
-        window.addEventListener('load', () => {
-            self.handleWindowLoadEvent()
-        })
-    }
+  addWindowLoadEvent () {
+    const self = this
+    window.addEventListener('load', () => {
+      self.handleWindowLoadEvent()
+    })
+  }
 
-    handleWindowLoadEvent() {
-        let elRoot = document.querySelector(':root')
-        this.handleWindowResizeEvent(elRoot)
-        this.addBodyClass()
-    }
+  handleWindowLoadEvent () {
+    const elRoot = document.querySelector(':root')
+    this.handleWindowResizeEvent(elRoot)
+    this.addBodyClass()
+  }
 
-    addWindowResizeEvent() {
-        let elRoot = document.querySelector(':root')
-        let self = this
-        window.addEventListener('resize', () => {
-            self.handleWindowResizeEvent(elRoot)
-        })
-    }
+  addWindowResizeEvent () {
+    const elRoot = document.querySelector(':root')
+    const self = this
+    window.addEventListener('resize', () => {
+      self.handleWindowResizeEvent(elRoot)
+    })
+  }
 
-    handleWindowResizeEvent(elRoot) {
-        if (elRoot) {
-            elRoot.style.setProperty(this.cssVarName, this.offsetHeight + 'px');
-        }
+  handleWindowResizeEvent (elRoot) {
+    if (elRoot) {
+      elRoot.style.setProperty(this.cssVarName, this.offsetHeight + 'px')
     }
+  }
 }
 
 customElements.define('sticky-alert', StickyAlert)
