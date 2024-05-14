@@ -4,10 +4,11 @@ import { minify } from 'terser'
 import fs from 'fs'
 import stylelint from 'stylelint'
 import browsersync from 'browser-sync'
-import standard from 'ts-standard'
 import ts from 'typescript'
+import { ESLint } from 'eslint'
 const bs = browsersync.create()
 const tsConfig = JSON.parse(fs.readFileSync('tsconfig.json', 'utf-8'))
+const eslint = new ESLint()
 
 // Functions
 async function compileTs () {
@@ -84,28 +85,13 @@ async function lintCss () {
   })
 }
 
-async function lintJs () {
+async function lintTs () {
   (async function () {
     console.log('Linting Typescript...')
-    standard.lintFiles(['public_html/index.ts']).then((results) => {
-      results.forEach((result) => {
-        if (result.messages.length > 0) {
-          console.error('')
-          console.error(chalk.underline(result.filePath))
-          result.messages.forEach((message) => {
-            let messageText = '  ' + chalk.gray(message.line + ':' + message.column) + '  '
-            if (message.severity === 2) {
-              messageText += chalk.red(message.severity)
-            } else {
-              messageText += message.severity
-            }
-            messageText += '  ' + message.message + '  ' + chalk.gray(message.ruleId)
-            console.error(messageText)
-            console.error('')
-          })
-        }
-      })
-    })
+    const results = await eslint.lintFiles(['public_html/index.ts'])
+    const formatter = await eslint.loadFormatter('stylish')
+    const resultsText = formatter.format(results)
+    console.log(resultsText)
   })().catch(function (error) {
     console.error(error)
   })
@@ -125,7 +111,7 @@ bs.watch('public_html/styles.css').on('change', function () {
 
 // Lint, minify, then reload when JS source changes
 bs.watch('public_html/index.ts').on('change', async function () {
-  lintJs()
+  lintTs()
   compileTs()
   minifyJs()
   bs.reload()
@@ -146,7 +132,7 @@ bs.init({
     // so that localhost will preview a properly-formatted date string
     {
       match: /{{DATE_TODAY}}/g,
-      fn: function (req, res, match) {
+      fn: function () {
         const months = [
           'January',
           'February',
