@@ -1,4 +1,4 @@
-enum StickyAlertConfig {
+export enum StickyAlertConfig {
   BODY_CLASS = 'with-sticky-alert',
   CSS_VAR_NAME = '--sticky-alert-height'
 }
