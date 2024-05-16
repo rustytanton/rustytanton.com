@@ -12,18 +12,23 @@
     "lintcss": "npx stylelint public_html/styles.css",
     "minifycss": "npx css-minify -d public_html -o public_html",
     "minifyjs": "npx terser public_html/index.js -o public_html/index.min.js --source-map",
-    "clean": "rm -rf ./node_modules ./public_html/*.js ./public_html/*.map ./public_html/*.min.css"
+    "clean": "rm -rf ./node_modules ./public_html/*.js ./public_html/*.map ./public_html/*.min.css",
+    "test": "npx jest"
   },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
+    "@types/jest": "^29.5.12",
     "browser-sync": "^3.0.2",
     "chalk": "^5.3.0",
     "css-minify": "^2.0.0",
     "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.2.5",
     "stylelint": "^16.5.0",
     "stylelint-config-standard": "^36.0.0",
     "terser": "^5.31.0",
+    "ts-jest": "^29.1.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.9.0"
   }
