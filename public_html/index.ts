@@ -1,54 +1,69 @@
-export enum StickyAlertConfig {
-  BODY_CLASS = 'with-sticky-alert',
-  CSS_VAR_NAME = '--sticky-alert-height'
+const enum htmlClasses {
+  WITH_STICKY_ALERT = 'with-sticky-alert'
 }
 
-interface StickyAlert {
-  readonly element: HTMLElement
-  readonly elementRoot: HTMLElement
+const enum cssVariables {
+  STICKY_ALERT_HEIGHT = '--sticky-alert-height'
 }
 
-function stickyAlertHandleResizeEvent (stickyAlert: StickyAlert): void {
-  stickyAlert.elementRoot.style.setProperty(
-    StickyAlertConfig.CSS_VAR_NAME,
-    stickyAlert.element.offsetHeight.toString() + 'px'
-  )
+export interface IStickyAlert {
+  el: HTMLElement
+  elRoot: HTMLElement
+  addEvents: () => void
+  addAlertClassToBody: () => void
+  setCssVarAlertSize: () => void
 }
 
-function stickyAlertHandleLoadEvent (stickyAlert: StickyAlert): void {
-  stickyAlertHandleResizeEvent(stickyAlert)
-  document.body.classList.add(StickyAlertConfig.BODY_CLASS)
-}
+export class StickyAlert implements IStickyAlert {
+  el: HTMLElement
+  elRoot: HTMLElement
 
-function stickyAlertAttach (el: HTMLElement): void {
-  const stickyAlert: StickyAlert = {
-    element: el,
-    elementRoot: document.querySelector(':root') as HTMLElement
+  constructor (el: HTMLElement, elRoot?: HTMLElement) {
+    this.el = el
+    if (elRoot) {
+      this.elRoot = elRoot
+    } else {
+      this.elRoot = document.querySelector(':root') as HTMLElement
+    }
+    this.addEvents()
+    this.setCssVarAlertSize()
+    this.addAlertClassToBody()
   }
 
-  let stickyLoaded: boolean = false
-
-  // call once on load
-  if (document.readyState === 'complete') {
-    stickyAlertHandleLoadEvent(stickyAlert)
-    stickyLoaded = true
-  } else {
-    window.addEventListener('load', () => {
-      stickyAlertHandleLoadEvent(stickyAlert)
-      stickyLoaded = true
+  addEvents(): void {
+    document.addEventListener('resize', () => {
+      this.setCssVarAlertSize()
     })
   }
 
-  // call on resize
-  window.addEventListener('resize', () => {
-    if (stickyLoaded) {
-      stickyAlertHandleResizeEvent(stickyAlert)
+  addAlertClassToBody(): void {
+    document.body.classList.add(htmlClasses.WITH_STICKY_ALERT)
+  }
+
+  setCssVarAlertSize(): void {
+    this.elRoot.style.setProperty(
+      cssVariables.STICKY_ALERT_HEIGHT,
+      this.el.offsetHeight.toString() + 'px'
+    )
+  }
+}
+
+export async function ready(): Promise<void> {
+  return new Promise((resolve) => {
+    if (document.readyState === 'complete') {
+      resolve()
+    } else {
+      document.addEventListener('readystatechange', () => {
+        if (document.readyState === 'complete') {
+          resolve()
+        }
+      })
     }
   })
 }
 
-window.addEventListener('load', () => {
-  document.querySelectorAll('.sticky-alert').forEach(el => {
-    stickyAlertAttach(el as HTMLElement)
-  })
+ready().then(() => {
+  new StickyAlert(
+    document.querySelector('.sticky-alert') as HTMLElement
+  )
 })
