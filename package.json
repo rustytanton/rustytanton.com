@@ -7,6 +7,7 @@
   "type": "module",
   "scripts": {
     "start": "node start.js",
+    "build": "npm run minifycss && npm run compilets && npm run minifyjs",
     "compilets": "npx tsc",
     "lintts": "npx eslint public_html/index.ts",
     "lintcss": "npx stylelint public_html/styles.css",

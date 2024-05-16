@@ -33,14 +33,8 @@ jobs:
       - name: Run unit tests
         run: npm test
       
-      - name: Compile Typescript
-        run: npm run compilets
-      
-      - name: Minify CSS
-        run: npm run minifycss
-      
-      - name: Minify JS
-        run: npm run minifyjs
+      - name: Build
+        run: npm run build
 
       - name: index.html token substitution
         run: |
