@@ -74,5 +74,17 @@ describe('ready', () => {
         }
     })
 
-    // @todo resolves after event fires if loaded before readyState complete
+    test('ready adds event when loaded before readyState = complete', async () => {
+        const addEventListenerSpy = jest.spyOn(window.document, 'addEventListener')
+        Object.defineProperty(global.document, 'readyState', { 
+            value: 'loading',
+            writable: true
+        })
+        try {
+            ready()
+        } catch(error) {
+            console.log(error)
+        }
+        expect(addEventListenerSpy).toHaveBeenLastCalledWith('readystatechange', expect.any(Function))
+    })
 })
