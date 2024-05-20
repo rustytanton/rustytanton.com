@@ -34,6 +34,15 @@ describe('StickyAlert', () => {
         expect(stickyAlert.addAlertClassToBody).toHaveBeenCalledTimes(1)
     })
 
+    test('addEvents adds event on resize', () => {
+        const addEventListenerSpy = jest.spyOn(window.document, 'addEventListener')
+        const elAlert = document.getElementById('sticky-alert') as HTMLElement
+        const elRoot = document.getElementById('root') as HTMLElement
+        const stickyAlert = new StickyAlert(elAlert, elRoot)
+        stickyAlert.addEvents()
+        expect(addEventListenerSpy).toHaveBeenLastCalledWith('resize', expect.any(Function))
+    })
+
     test('addAlertClassToBody adds alert class to body', () => {
         const elAlert = document.getElementById('sticky-alert') as HTMLElement
         const elRoot = document.getElementById('root') as HTMLElement
