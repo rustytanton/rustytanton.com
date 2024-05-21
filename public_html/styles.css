@@ -552,11 +552,11 @@ so I'm leaving it
 }
 
 /* photo dialog */
-body.dialog-photo-open {
+body.dialog-open {
 	overflow: hidden;
 }
 
-.dialog-photo {
+.dialog {
 	align-items: center;
 	background: transparent;
 	border: 0;
@@ -567,15 +567,15 @@ body.dialog-photo-open {
 	width: 100vw;
 }
 
-body.dialog-photo-open .dialog-photo {
+body.dialog-open .dialog {
 	display: flex;
 }
 
-.dialog-photo::backdrop {
+.dialog::backdrop {
 	background: rgb(0 0 0 / 40%)
 }
 
-.dialog-photo img {
+.dialog img {
 	border: 0;
 	height: auto;
 	max-height: 75vh;
@@ -583,7 +583,7 @@ body.dialog-photo-open .dialog-photo {
 	width: auto;
 }
 
-.dialog-photo-button-close {
+.dialog-button-close {
 	background: transparent;
 	border: 0;
 	cursor: pointer;
