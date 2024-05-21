@@ -550,3 +550,44 @@ so I'm leaving it
 		padding-top: 120px;
 	}
 }
+
+/* photo dialog */
+body.dialog-photo-open {
+	overflow: hidden;
+}
+
+.dialog-photo {
+	align-items: center;
+	background: transparent;
+	border: 0;
+	display: none;
+	height: 100vw;
+	justify-content: center;
+	overflow: hidden;
+	width: 100vw;
+}
+
+body.dialog-photo-open .dialog-photo {
+	display: flex;
+}
+
+.dialog-photo::backdrop {
+	background: rgb(0 0 0 / 40%)
+}
+
+.dialog-photo img {
+	border: 0;
+	height: auto;
+	max-height: 75vh;
+	max-width: 75vw;
+	width: auto;
+}
+
+.dialog-photo-button-close {
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	top: 20px;
+}
