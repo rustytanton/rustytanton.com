@@ -20,10 +20,6 @@
 
 	/* margins */
 	--margin-base: 10px;
-
-	/* Set by Javascript */
-
-	/* --sticky-alert-height */
 }
 
 /* light reset */
@@ -90,10 +86,6 @@ span {
 	background-color: var(--color-white);
 }
 
-.with-sticky-alert .row:first-of-type {
-	padding-top: var(--sticky-alert-height);
-}
-
 .row-content {
 	flex: 1;
 	padding: 0 40px;
@@ -153,14 +145,11 @@ span {
 	background-color: var(--color-orange-light);
 	display: block;
 	padding: 35px;
-	position: relative;
+	position: sticky;
 	text-align: center;
+	top: 0;
 	width: 100vw;
 	z-index: 1;
-}
-
-.with-sticky-alert .sticky-alert {
-	position: fixed;
 }
 
 .sticky-alert-text {
