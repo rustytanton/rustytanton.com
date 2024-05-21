@@ -1,4 +1,4 @@
-import { ready } from '../public_html'
+import { ElementManager, ready } from '../public_html'
 
 describe('ready', () => {
     test('resolves immediately if loaded on readyState complete', async () => {
@@ -34,5 +34,23 @@ describe('ready', () => {
             console.log(error)
         }
         expect(addEventListenerSpy).toHaveBeenLastCalledWith('readystatechange', expect.any(Function))
+    })
+})
+
+describe('ElementManager', () => {
+    test('saves el on construction', () => {
+        const el = document.createElement('div')
+        const mgr = new ElementManager(el)
+        expect(mgr.el).toBe(el)
+    })
+
+    test('calls expected methods on init', () => {
+        const el = document.createElement('div')
+        const mgr = new ElementManager(el)
+        mgr.addEvents = jest.fn()
+        mgr.render = jest.fn()
+        mgr.init()
+        expect(mgr.addEvents).toHaveBeenCalledTimes(1)
+        expect(mgr.render).toHaveBeenCalledTimes(1)
     })
 })
