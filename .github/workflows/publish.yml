@@ -29,6 +29,9 @@ jobs:
       
       - name: Build
         run: npm run build
+      
+      - name: Echo dist folder contents
+        run: echo $(ls dist)
 
       - name: SCP files to web server
         uses: appleboy/scp-action@v0.1.7
