@@ -86,24 +86,30 @@ export class DialogView extends BaseView implements IDialogView {
 }
 
 
-export interface IDialogPhotoLinkView {
-  el: HTMLElement
+export type DialogPhotoLink = {
   altText: string
-  dialog: IDialogView
   imgSrc: string
 }
 
 
-export class DialogPhotoLinkView extends BaseView implements IDialogPhotoLinkView {
-  altText: string = ''
+export interface IDialogPhotoLinkView {
+  el: HTMLElement  
   dialog: IDialogView
-  imgSrc: string = ''
+  model: DialogPhotoLink
+}
 
-  constructor (el: HTMLElement, dialog?: IDialogView) {
+
+export class DialogPhotoLinkView extends BaseView implements IDialogPhotoLinkView {
+  dialog: IDialogView
+  model: DialogPhotoLink
+
+  constructor (el: HTMLElement, dialog?: IDialogView, model?: DialogPhotoLink) {
     super(el)
     this.dialog = dialog ? dialog : new DialogView(document.createElement('dialog'))
-    this.altText = this.el.getAttribute('data-alt') || ''
-    this.imgSrc = this.el.getAttribute('href') || ''
+    this.model = model ? model : {} as DialogPhotoLink
+
+    this.model.altText = this.el.getAttribute('data-alt') || ''
+    this.model.imgSrc = this.el.getAttribute('href') || ''
   }
 
   init (): void {
@@ -120,7 +126,7 @@ export class DialogPhotoLinkView extends BaseView implements IDialogPhotoLinkVie
 
   render(): void {
     const elImg = document.createElement('img')
-    elImg.setAttribute('src', this.imgSrc)
+    elImg.setAttribute('src', this.model.imgSrc)
     this.dialog.el.appendChild(elImg)
   }
 }

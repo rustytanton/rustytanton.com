@@ -10,8 +10,8 @@ test('constructor saves attributes', () => {
     const elLink = document.querySelector('.dialog-photo-link')
     const dialogPhotoLink = new DialogPhotoLinkView(elLink as HTMLElement)
     expect(dialogPhotoLink.el).toBe(elLink)
-    expect(dialogPhotoLink.altText).toBe('Some Alt Text')
-    expect(dialogPhotoLink.imgSrc).toBe('https://rustytanton.com/image.jpg')
+    expect(dialogPhotoLink.model.altText).toBe('Some Alt Text')
+    expect(dialogPhotoLink.model.imgSrc).toBe('https://rustytanton.com/image.jpg')
     expect(dialogPhotoLink.dialog).toBeInstanceOf(DialogView)
 })
 
