@@ -1,4 +1,4 @@
-import { ready } from '../public_html'
+import { ready } from '../../scripts/globals/ready'
 
 test('resolves immediately if loaded on readyState complete', async () => {
     Object.defineProperty(global.document, 'readyState', { 

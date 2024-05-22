@@ -1,4 +1,4 @@
-deploy_key
+dist
 node_modules
 .DS_Store
 public_html/*.js

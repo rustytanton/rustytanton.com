@@ -1,0 +1,19 @@
+/* bullet lists */
+.bullet-list li {
+	line-height: 1.5;
+	margin-bottom: 10px;
+	padding-left: 20px;
+	position: relative;
+}
+
+.bullet-list li::before {
+	background-color: var(--color-black);
+	border-radius: 50%;
+	display: block;
+	content: '';
+	height: 5px;
+	left: 0;
+	width: 5px;
+	position: absolute;
+	top: 12px;
+}

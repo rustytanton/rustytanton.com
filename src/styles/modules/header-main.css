@@ -1,0 +1,96 @@
+.header-main {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.header-main h1 {
+	font-size: var(--font-size-h1);
+	margin-bottom: 10px;
+}
+
+.header-main-subtitle {
+	font-size: var(--font-size-h3);
+	font-style: italic;
+	margin-bottom: 25px;
+}
+
+.header-main-picture {
+	margin-bottom: 80px;
+	padding: 40px 40px 0 0;
+}
+
+.header-main-picture img {
+	border-radius: 12px;
+	box-shadow: 25px 30px var(--color-orange-dark);
+	height: auto;
+	width: 200px;
+}
+
+.header-main p {
+	margin-bottom: 25px;
+}
+
+.header-main p:last-of-type {
+	margin-bottom: 15px;
+}
+
+/*
+Note: axe gives a "not enough contrast" error to this link color
+It only just barely doesn't have enough contrast to pass the test,
+and it looks way better with this color than with --color-orange-dark2
+so I'm leaving it
+*/
+.header-main a {
+	color: var(--color-orange-dark);
+}
+
+
+.header-main-links {
+	display: flex;
+}
+
+.header-main-links li {
+	align-items: center;
+	display: inline-flex;
+	height: 40px;
+	padding-right: 15px;
+}
+
+.header-main-links li a {
+	color: inherit;
+	font-style: italic;
+	font-weight: normal;
+	padding-left: 10px;
+}
+
+@media (width >= 512px) {
+	.header-main-links li {
+		padding-right: 45px;
+	}
+}
+
+@media (width >= 768px) {
+	.header-main-picture img {
+		height: 300px;
+		width: 300px;
+	}
+}
+
+@media (width >= 1024px) {
+	.header-main {
+		align-items: left;
+		flex-direction: row;	
+	}
+
+	.header-main-picture {
+		margin-bottom: 0;
+		padding-right: 0;
+		padding-top: 0;
+		width: 425px;
+	}
+
+	.header-main-text {
+		padding-top: 52px;
+	}
+}

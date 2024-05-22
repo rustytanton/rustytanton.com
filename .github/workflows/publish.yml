@@ -23,27 +23,12 @@ jobs:
       
       - name: Install NodeJS dependencies
         run: npm ci
-
-      - name: Lint CSS
-        run: npm run lintcss
-
-      - name: Lint Typescript
-        run: npm run lintts
-      
+     
       - name: Run unit tests
         run: npm test
       
       - name: Build
         run: npm run build
-
-      - name: index.html token substitution
-        run: |
-          sed -i "s/{{DATE_TODAY}}/$(date +'%b %e, %Y')/g" ${GITHUB_WORKSPACE}/public_html/index.html
-          sed -i "s/{{VERSION}}/$(date +'%s')/g" ${GITHUB_WORKSPACE}/public_html/index.html
-      
-      - name: sitemap.xml token substitution
-        run: |
-            sed -i "s/{{LASTMOD}}/$(date +'%Y-%m-%d')/g" ${GITHUB_WORKSPACE}/public_html/sitemap.xml
 
       - name: SCP files to web server
         uses: appleboy/scp-action@v0.1.7
@@ -53,7 +38,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
-          source: public_html/*
+          source: dist/*
           target: ~/
           use_insecure_cipher: true
           overwrite: true

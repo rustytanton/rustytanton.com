@@ -1,4 +1,5 @@
-import { DialogView, htmlClasses } from '../public_html'
+import { htmlClasses } from '../../scripts/globals/enums'
+import { DialogView } from '../../scripts/views/DialogView'
 
 test('render adds expected className to element', () => {
     const elDialog = document.createElement('dialog')

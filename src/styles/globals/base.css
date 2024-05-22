@@ -1,0 +1,40 @@
+/* body base styles */
+body {
+	background-color: var(--color-gray-light);
+}
+
+/* heading base styles */
+h1, h2, h3, h4, h5, h6 {
+	color: var(--color-gray-dark);
+}
+
+h1, h2, h3 {
+	font-family: var(--font-family-heading);
+}
+
+/* list base styles */
+ol, ul {
+	list-style-position: inside;
+}
+
+ul {
+	list-style-type: none;
+}
+
+/* paragraph base styles */
+p {
+	line-height: 1.5;
+}
+
+/* link base styles */
+a {
+	color: inherit;
+	font-weight: bold;
+}
+
+/* span base styles */
+span {
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+}

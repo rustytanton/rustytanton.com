@@ -1,0 +1,33 @@
+.overview-row {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 40px;
+}
+
+.overview-header {
+	font-size: var(--font-size-h2);
+	margin-bottom: 15px;
+}
+
+.overview-bullets {
+	flex: 1;
+}
+
+.overview-row:last-child {
+	margin-bottom: 0;
+}
+
+@media (width >= 1024px) {
+	.overview-header {
+		width: 435px;
+	}
+
+	.overview-row {
+		flex-direction: row;
+		margin-bottom: 30px;
+	}
+
+	.overview-row:last-of-type {
+		margin-bottom: 0;
+	}
+}

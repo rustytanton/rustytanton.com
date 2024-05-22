@@ -1,0 +1,23 @@
+/* variables */
+:root {
+	/* colors */
+	--color-black: #000;
+	--color-gray-dark: #282828;
+	--color-gray-light: #FBFBFB;
+	--color-orange-light: #F8EDE0;
+	--color-orange-dark: #F35A04;
+	--color-orange-dark2: #983106;
+	--color-white: #fff;
+	--font-family-heading: 'Lora', serif;
+	--font-family-body: 'Open Sans', sans-serif;
+
+	/* font sizes */
+	--font-size-h1: 48px;
+	--font-size-h2: 32px;
+	--font-size-h3: 24px;
+	--font-size-body: 18px;
+	--font-size-small: 14px;
+
+	/* margins */
+	--margin-base: 10px;
+}

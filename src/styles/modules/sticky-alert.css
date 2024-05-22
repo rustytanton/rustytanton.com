@@ -1,0 +1,17 @@
+.sticky-alert {
+	background-color: var(--color-orange-light);
+	display: block;
+	padding: 35px;
+	position: sticky;
+	text-align: center;
+	top: 0;
+	width: 100vw;
+	z-index: 1;
+}
+
+.sticky-alert-text {
+	color: var(--color-orange-dark2);
+	line-height: 1.25;
+	margin: 0 auto;
+	max-width: 760px;
+}

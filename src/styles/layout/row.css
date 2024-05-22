@@ -1,0 +1,45 @@
+/* rows */
+.row {
+	display: flex;
+	justify-content: center;
+	padding: 40px 0;
+	width: 100%;
+}
+
+.row:nth-child(odd) {
+	background-color: var(--color-white);
+}
+
+.row-content {
+	flex: 1;
+	padding: 0 40px;
+	max-width: 95%;
+}
+
+@media (width >= 768px) {
+	.row-content {
+		max-width: 85%;
+	}
+}
+
+@media (width >= 1024px) {
+	.row-content {
+		padding: 65px 0;
+	}
+
+	/* adjustment for overview row to match design */
+	.row:nth-of-type(2) .row-content {
+		padding-bottom: 10px;
+	}
+
+	/* adjustment for skills row to match design */
+	.row:nth-of-type(3) .row-content {
+		padding-bottom: 10px;
+	}
+}
+
+@media (width >= 1375px) {
+	.row-content {
+		max-width: 1250px;
+	}
+}

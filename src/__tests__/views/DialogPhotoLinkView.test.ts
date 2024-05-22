@@ -1,4 +1,5 @@
-import { DialogView, DialogPhotoLinkView } from '../public_html'
+import { DialogView } from '../../scripts/views/DialogView'
+import { DialogPhotoLinkView } from '../../scripts/views/DialogPhotoLinkView'
 
 beforeEach(() => {
     document.body.innerHTML = `

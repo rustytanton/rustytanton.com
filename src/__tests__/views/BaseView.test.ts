@@ -1,4 +1,4 @@
-import { BaseView } from '../public_html'
+import { BaseView } from '../../scripts/views/BaseView'
 
 test('saves el on construction', () => {
     const el = document.createElement('div')

@@ -1,0 +1,32 @@
+.tags {
+	display: flex;
+	flex-direction: column;
+}
+
+.tags-column {
+	flex: 1;
+	margin-bottom: 40px;
+}
+
+.tags-header {
+	font-size: var(--font-size-h2);
+	margin-bottom: 30px;
+}
+
+.tags-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tags-list li {
+	background-color: var(--color-orange-light);
+	border-radius: 25px;
+	margin: 0 8px 8px 0;
+	padding: 10px;
+}
+
+@media (width >= 1024px) {
+	.tags {
+		flex-direction: row;
+	}
+}
