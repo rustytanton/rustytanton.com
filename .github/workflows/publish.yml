@@ -38,7 +38,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
-          source: dist/scripts.js.LICENSE.txt
+          source: ./dist/scripts.js.LICENSE.txt
           target: ~/
           use_insecure_cipher: true
           overwrite: true
