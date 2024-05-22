@@ -38,7 +38,8 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
-          source: ./dist/scripts.js.LICENSE.txt
-          target: ~/
+          source: ./dist/*
+          target: ~/public_html
           use_insecure_cipher: true
+          strip_components: 1
           overwrite: true
