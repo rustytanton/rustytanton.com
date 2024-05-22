@@ -1,14 +1,14 @@
-import { ElementManager } from '../public_html'
+import { BaseView } from '../public_html'
 
 test('saves el on construction', () => {
     const el = document.createElement('div')
-    const mgr = new ElementManager(el)
+    const mgr = new BaseView(el)
     expect(mgr.el).toBe(el)
 })
 
 test('calls expected methods on init', () => {
     const el = document.createElement('div')
-    const mgr = new ElementManager(el)
+    const mgr = new BaseView(el)
     mgr.addEvents = jest.fn()
     mgr.render = jest.fn()
     mgr.init()

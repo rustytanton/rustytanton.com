@@ -1,4 +1,4 @@
-import { Dialog, DialogPhotoLink } from '../public_html'
+import { DialogView, DialogPhotoLinkView } from '../public_html'
 
 beforeEach(() => {
     document.body.innerHTML = `
@@ -8,16 +8,16 @@ beforeEach(() => {
 
 test('constructor saves attributes', () => {
     const elLink = document.querySelector('.dialog-photo-link')
-    const dialogPhotoLink = new DialogPhotoLink(elLink as HTMLElement)
+    const dialogPhotoLink = new DialogPhotoLinkView(elLink as HTMLElement)
     expect(dialogPhotoLink.el).toBe(elLink)
     expect(dialogPhotoLink.altText).toBe('Some Alt Text')
     expect(dialogPhotoLink.imgSrc).toBe('https://rustytanton.com/image.jpg')
-    expect(dialogPhotoLink.dialog).toBeInstanceOf(Dialog)
+    expect(dialogPhotoLink.dialog).toBeInstanceOf(DialogView)
 })
 
 test('init calls expected functions', () => {
     const elLink = document.querySelector('.dialog-photo-link')
-    const dialogPhotoLink = new DialogPhotoLink(elLink as HTMLElement)
+    const dialogPhotoLink = new DialogPhotoLinkView(elLink as HTMLElement)
     dialogPhotoLink.addEvents = jest.fn()
     dialogPhotoLink.render = jest.fn()
     dialogPhotoLink.dialog.init = jest.fn()
@@ -30,14 +30,14 @@ test('init calls expected functions', () => {
 test('addEvents adds click event to element', () => {
     const elLink = document.querySelector('.dialog-photo-link') as HTMLElement
     elLink.addEventListener = jest.fn()
-    const dialogPhotoLink = new DialogPhotoLink(elLink as HTMLElement)
+    const dialogPhotoLink = new DialogPhotoLinkView(elLink as HTMLElement)
     dialogPhotoLink.addEvents()
     expect(elLink.addEventListener).toHaveBeenCalledWith('click', expect.any(Function))
 })
 
 test('render appends image to dialog', () => {
     const elLink = document.querySelector('.dialog-photo-link') as HTMLElement
-    const dialogPhotoLink = new DialogPhotoLink(elLink as HTMLElement)
+    const dialogPhotoLink = new DialogPhotoLinkView(elLink as HTMLElement)
     expect(dialogPhotoLink.dialog.el.querySelector('img')).toBeFalsy()
     dialogPhotoLink.render()
     expect(dialogPhotoLink.dialog.el.querySelector('img')).toBeTruthy()
