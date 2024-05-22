@@ -6,7 +6,6 @@
   "private": true,
   "homepage": "https://github.com/rustytanton/rustytanton.com#readme",
   "scripts": {
-    "start": "node start.js",
     "build": "npx webpack",
     "devserver": "npx webpack serve",
     "clean": "rm -rf ./node_modules dist",
