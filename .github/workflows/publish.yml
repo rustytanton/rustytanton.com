@@ -23,15 +23,12 @@ jobs:
       
       - name: Install NodeJS dependencies
         run: npm ci
-     
+
       - name: Run unit tests
         run: npm test
       
       - name: Build
         run: npm run build
-      
-      - name: Echo dist folder contents
-        run: echo $(ls dist)
 
       - name: SCP files to web server
         uses: appleboy/scp-action@v0.1.7
@@ -41,7 +38,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           key: ${{ secrets.SSHKEY }}
           port: ${{ secrets.PORT }}
-          source: dist/*
+          source: dist/scripts.js.LICENSE.txt
           target: ~/
           use_insecure_cipher: true
           overwrite: true
