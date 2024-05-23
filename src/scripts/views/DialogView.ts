@@ -8,21 +8,20 @@ export interface IDialogView {
   close: () => void
 }
 
-
-export class DialogView extends BaseView implements IDialogView { 
+export class DialogView extends BaseView implements IDialogView {
   elBtnClose?: HTMLButtonElement
 
-  open(): void {
+  open (): void {
     document.body.classList.add(htmlClasses.DIALOG_OPEN);
     (this.el as HTMLDialogElement).showModal()
   }
 
-  close(): void {
+  close (): void {
     document.body.classList.remove(htmlClasses.DIALOG_OPEN);
     (this.el as HTMLDialogElement).close()
   }
 
-  render(): void {
+  render (): void {
     this.el.classList.add(htmlClasses.DIALOG)
 
     this.elBtnClose = document.createElement('button')
@@ -33,8 +32,8 @@ export class DialogView extends BaseView implements IDialogView {
     document.body.appendChild(this.el)
   }
 
-  addEvents(): void {
-    if (this.elBtnClose) {
+  addEvents (): void {
+    if (this.elBtnClose !== undefined) {
       this.elBtnClose.addEventListener('click', () => {
         this.close()
       })

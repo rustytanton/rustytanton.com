@@ -1,68 +1,76 @@
-var CopyPlugin = require("copy-webpack-plugin");
-var CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-var ESLintPlugin = require('eslint-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var path = require('path');
-var StylelintPlugin = require('stylelint-webpack-plugin');
-var TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
+const StylelintPlugin = require('stylelint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   devServer: {
     static: {
-      directory: path.join(__dirname, 'src'),
+      directory: path.join(__dirname, 'src')
     },
     compress: true,
-    port: 9000,
+    port: 9000
   },
   devtool: 'inline-source-map',
   entry: './src/scripts/index.ts',
-  mode: 'development',  
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /.*\.html$/,
-        loader: 'raw-loader',
+        loader: 'raw-loader'
       },
       {
         test: /.*\.html$/,
         loader: 'string-replace-loader',
         options: {
           multiple: [
-            {search: '{{DATE_TODAY}}', flags: 'g', replace: function() {
-              var months = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December'
-              ]
-              var d = new Date()
-              return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear()
-            }},
-            {search: '{{VERSION}}', flags: 'g', replace: function() {
-              return new Date().getTime()
-            }},
+            {
+              search: '{{DATE_TODAY}}',
+              flags: 'g',
+              replace: () => {
+                const months = [
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'August',
+                  'September',
+                  'October',
+                  'November',
+                  'December'
+                ]
+                const d = new Date()
+                return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear()
+              }
+            },
+            {
+              search: '{{VERSION}}',
+              flags: 'g',
+              replace: () => {
+                return new Date().getTime()
+              }
+            }
           ]
         }
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
-    ],
+    ]
   },
   optimization: {
     minimize: true,
@@ -73,7 +81,7 @@ module.exports = {
   },
   output: {
     filename: 'scripts.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new ESLintPlugin({
@@ -88,27 +96,27 @@ module.exports = {
       filename: 'index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: "styles.css"
+      filename: 'styles.css'
     }),
     new CopyPlugin({
       patterns: [
-        { from: "./src/assets", to: "assets" },
+        { from: './src/assets', to: 'assets' },
         {
-          from: "./src/sitemap.xml",
-          to: "sitemap.xml",
-          transform: function(content) {
-            var d = new Date()
-            var month = (d.getMonth() > 9) ? d.getMonth() : '0' + d.getMonth()
-            var day = (d.getDate() > 9) ? d.getDate() : '0' + d.getDate()
+          from: './src/sitemap.xml',
+          to: 'sitemap.xml',
+          transform: (content) => {
+            const d = new Date()
+            const month = (d.getMonth() > 9) ? d.getMonth() : '0' + d.getMonth()
+            const day = (d.getDate() > 9) ? d.getDate() : '0' + d.getDate()
             return content
               .toString()
               .replace('{{LASTMOD}}', d.getFullYear() + '-' + month + '-' + day)
           }
-        },
-      ],
+        }
+      ]
     })
   ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
-};
+    extensions: ['.tsx', '.ts', '.js']
+  }
+}

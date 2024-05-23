@@ -16,12 +16,12 @@ export class BaseView implements IBaseView {
     this.render()
     this.addEvents()
   }
-  
-  addEvents(): void {
-    return
+
+  addEvents (): void {
+    return undefined
   }
 
-  render(): void {
-    return
+  render (): void {
+    return undefined
   }
 }
