@@ -1,6 +1,30 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "extends": ["plugin:@typescript-eslint/recommended"],
-    "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
-    "rules": {}
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 5,
+        "sourceType": "commonjs"
+    },
+    "rules": {},
+    "overrides": [
+        {
+            "files": [
+                "*.ts", "*.tsx"
+            ],            
+            "extends": ["plugin:@typescript-eslint/recommended"],
+            "parser": "@typescript-eslint/parser",
+            "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
+        },
+        {
+            "files": [
+                "jest.config.js",
+                "stylelint.config.js",
+                "webpack.config.js"
+            ],
+            "globals": {
+                "__dirname": true,
+                "module": true,
+                "require": true
+            }
+        }
+    ]
 }
