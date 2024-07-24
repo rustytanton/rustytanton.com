@@ -106,7 +106,7 @@ module.exports = {
           to: 'sitemap.xml',
           transform: (content) => {
             const d = new Date()
-            const month = (d.getMonth() > 9) ? d.getMonth() : '0' + d.getMonth()
+            const month = (d.getMonth() > 9) ? d.getMonth() : '0' + (d.getMonth() + 1)
             const day = (d.getDate() > 9) ? d.getDate() : '0' + d.getDate()
             return content
               .toString()
