@@ -1,3 +1,11 @@
+.experience {
+  margin-bottom: 70px;
+}
+
+.experience a {
+  color: var(--color-orange-dark);
+}
+
 .experience-heading {
 	font-size: var(--font-size-h1);
 	margin-bottom: 40px;
